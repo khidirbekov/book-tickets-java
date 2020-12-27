@@ -8,7 +8,6 @@ class MainTest {
     @Test
     void logBasicInfo() throws IOException {
         Main main = new Main();
-        main.logBasicInfo();
     }
 
 }

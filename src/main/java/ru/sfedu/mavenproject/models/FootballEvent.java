@@ -1,4 +1,9 @@
-package ru.sfedu.mavenproject.beans;
+package ru.sfedu.mavenproject.models;
+
+import com.opencsv.bean.CsvBindByName;
+import org.simpleframework.xml.Element;
+
+import java.util.Objects;
 
 /**
  * Class FootballEvent
@@ -8,8 +13,11 @@ public class FootballEvent extends Event {
   //
   // Fields
   //
-
+  @CsvBindByName
+  @Element
   private String team1;
+  @CsvBindByName
+  @Element
   private String team2;
   
   //
@@ -62,4 +70,27 @@ public class FootballEvent extends Event {
   // Other methods
   //
 
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
+    FootballEvent that = (FootballEvent) o;
+    return Objects.equals(team1, that.team1) &&
+            Objects.equals(team2, that.team2);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(super.hashCode(), team1, team2);
+  }
+
+  @Override
+  public String toString() {
+    return "FootballEvent{" + super.toString() +
+            "team1='" + team1 + '\'' +
+            ", team2='" + team2 + '\'' +
+            '}';
+  }
 }
