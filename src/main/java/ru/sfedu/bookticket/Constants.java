@@ -193,4 +193,13 @@ public class Constants {
     public static final String DEBUG_JDBC_INIT_DATA_SOURCE = "JDBC: Init data source";
     public static final String JDBC_DATA_SOURCE_MESSAGE = "JDBC: Data source inited and generated data";
     public static final String WRONG_ARGS = "Error: wrong args";
+
+    public static final String SQL_ALL_SCHEMAS = "SELECT schema_name FROM information_schema.schemata";
+    public static final String SQL_CURRENT_USER = "SELECT current_user";
+    public static final String SQL_DB_SIZES ="SELECT pg_size_pretty(pg_database_size(datname)) from pg_database";
+    public static final String SQL_DB_NAMES = "SELECT datname FROM pg_database";
+
+    public static final String ENV_HIBERNATE = "hibernate";
+    public static final String DEFAULT_HIBERNATE_CONFIG = "./src/main/resources/hibernate.cfg.xml";
+    public static final String SUCCESS_UPDATE_EVENT = "Success update event";
 }

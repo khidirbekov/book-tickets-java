@@ -133,7 +133,7 @@ public class DataProviderJDBC implements DataProvider {
                             Constants.WHERE +
                             Constants.ID + eventId);
             FootballEvent footballEvent = new FootballEvent();
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 footballEvent.setId(resultSet.getLong(1));
                 footballEvent.setName(resultSet.getString(2));
                 footballEvent.setDate(resultSet.getString(3));
@@ -167,7 +167,7 @@ public class DataProviderJDBC implements DataProvider {
                             Constants.WHERE +
                             Constants.ID + eventId);
             ITEvent itEvent = new ITEvent();
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 itEvent.setId(resultSet.getLong(1));
                 itEvent.setName(resultSet.getString(2));
                 itEvent.setDate(resultSet.getString(3));
@@ -200,7 +200,7 @@ public class DataProviderJDBC implements DataProvider {
                             Constants.WHERE +
                             Constants.ID + eventId);
             MusicEvent musicEvent = new MusicEvent();
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 musicEvent.setId(resultSet.getLong(1));
                 musicEvent.setName(resultSet.getString(2));
                 musicEvent.setDate(resultSet.getString(3));

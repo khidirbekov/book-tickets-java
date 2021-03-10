@@ -152,11 +152,8 @@ public class DataProviderJDBCTest extends BaseTest {
     @Test
     void bookTicketSuccess() throws Exception {
         Response response1 = provider.bookTicket(1, "FOOTBALL", "test");
-        Ticket ticket1 = (Ticket) response1.getBody();
         Response response2 = provider.bookTicket(2, "IT", "test");
-        Ticket ticket2 = (Ticket) response1.getBody();
         Response response3 = provider.bookTicket(3, "MUSIC", "test");
-        Ticket ticket3 = (Ticket) response1.getBody();
 
         assertEquals(response1.getStatus(), ResponseStatus.SUCCESS);
         assertEquals(response2.getStatus(), ResponseStatus.SUCCESS);
@@ -210,7 +207,7 @@ public class DataProviderJDBCTest extends BaseTest {
                 "00:01",
                 "200",
                 photos,
-                "Rostov, Moscow");
+                "Frontend");
         assertEquals(response2.getStatus(), ResponseStatus.SUCCESS);
         Response response3 = provider.updateEvent(
                 "MUSIC",
@@ -221,7 +218,7 @@ public class DataProviderJDBCTest extends BaseTest {
                 "00:01",
                 "200",
                 photos,
-                "Rostov, Moscow");
+                "Akon");
         assertEquals(response3.getStatus(), ResponseStatus.SUCCESS);
     }
 
@@ -385,7 +382,7 @@ public class DataProviderJDBCTest extends BaseTest {
                 "00:01",
                 "200",
                 photos,
-                "Rostov, Moscow");
+                "Rostov");
         assertEquals(response2.getStatus(), ResponseStatus.SUCCESS);
         Response response3 = provider.createEvent(
                 "MUSIC",
@@ -395,7 +392,7 @@ public class DataProviderJDBCTest extends BaseTest {
                 "00:01",
                 "200",
                 photos,
-                "Rostov, Moscow");
+                "Rostov");
         assertEquals(response3.getStatus(), ResponseStatus.SUCCESS);
     }
 

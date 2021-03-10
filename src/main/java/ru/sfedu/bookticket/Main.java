@@ -8,11 +8,11 @@ import ru.sfedu.bookticket.api.DataProvider;
 import ru.sfedu.bookticket.api.DataProviderCSV;
 import ru.sfedu.bookticket.api.DataProviderJDBC;
 import ru.sfedu.bookticket.api.DataProviderXML;
+import ru.sfedu.bookticket.task1.DataProviderHibernate;
 import ru.sfedu.bookticket.utils.BaseUtil;
 import ru.sfedu.bookticket.utils.Response;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -406,21 +406,27 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        try {
-            List<String> listArgs = Arrays.asList(args);
-            if (listArgs.size() == 0) {
-                log.error(Constants.ARGS_IS_EMPTY);
-                System.exit(1);
-            }
-            String providerType = listArgs.get(0);
-            DataProvider provider = selectDataProvider(providerType);
-            if (provider == null) System.exit(1);
-            Response response = callMethod(provider, listArgs);
-            if (response == null) System.exit(1);
-            log.info(response);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            log.error(Constants.WRONG_ARGS);
-            System.exit(1);
-        }
+            // task1
+        DataProviderHibernate hibernate = new DataProviderHibernate();
+        hibernate.getCurrentUser();
+        hibernate.getAllSchemas();
+        hibernate.getDBNames();
+        hibernate.getDBSizes();
+//        try {
+//            List<String> listArgs = Arrays.asList(args);
+//            if (listArgs.size() == 0) {
+//                log.error(Constants.ARGS_IS_EMPTY);
+//                System.exit(1);
+//            }
+//            String providerType = listArgs.get(0);
+//            DataProvider provider = selectDataProvider(providerType);
+//            if (provider == null) System.exit(1);
+//            Response response = callMethod(provider, listArgs);
+//            if (response == null) System.exit(1);
+//            log.info(response);
+//        } catch (ArrayIndexOutOfBoundsException e) {
+//            log.error(Constants.WRONG_ARGS);
+//            System.exit(1);
+//        }
     }
 }
